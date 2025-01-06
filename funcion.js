@@ -1,49 +1,40 @@
-function calcularPromedio(a, b, c){
-    console.log("El promedio es : " + (a+b+c)/3)
-}
-calcularPromedio(15,20,16);
-
-let determinarMayor = function (a,b ) {
-    if(a > b){
-        console.log('El numero mayor es : ' + a);
-    } 
-    else if(a<b){
-        console.log('El numero mayor es : ' + b);
-
+// Función declarada para calcular el promedio
+function calcularPromedio(a, b, c) {
+    if (!a || !b || !c) {
+        console.log('Error: Todos los parámetros deben ser números válidos.');
+        return;
     }
+    console.log("El promedio es: " + (a + b + c) / 3);
+}
+
+// Función expresada para determinar el mayor
+let determinarMayor = function (a, b) {
+    if (!a || !b) {
+        console.log('Error: Todos los parámetros deben ser números válidos.');
+        return;
     }
+    console.log("El número mayor es: " + (a > b ? a : b));
+};
 
-const esPar = x => x/2;
-if (esPar== 0){
-    return true; 
-}
-else {
-    return false;
-}
-console.log(esPar(3));
+// Función flecha para verificar si un número es par
+const esPar = (x) => {
+    if (!x) {
+        console.log('Error: El parámetro debe ser un número válido.');
+        return false;
+    }
+    return x % 2 === 0;
+};
 
-setTimeout(function (){
-    console.log(calcularPromedio(18,11,20));
-    console.log(esPar(2));
-})
+// Llamadas a las funciones
+calcularPromedio(15, 20, 16); // Llama a calcularPromedio con números válidos
 
-/*Crea una funcion delcarada llamada calcularPromedio que reciba tres numeros 
-como parametro y retorne su promedio 
+determinarMayor(25, 30); // Llama a determinarMayor con números válidos
 
-Declare una funcion expresada llamada determinarMayor que reciba dos numeros como parametros y 
-retorne cual de ellos es el mayor 
+let numero = 3;
+console.log("¿El número " + numero + " es par? " + esPar(numero)); // Llama a esPar con un número
 
-Crea una funcion flecha llamada esPar que reciba un numro y retorne si el numero 
-es par y false si no lo es 
-
-Escribe una funcion anonima autoejecutable que : 
-llame a las funciones anteriores ( calcularPromedio,feterminarMayor, y esPar)
-use valores de ejemplo y muestre los resultados en la consola 
-
-Reto agrega validaciones para asegurarte de que los parametros son numeros antes de realizar 
-las operaciones. 
-Si algun parametro no es un numero, lanza un error con un mensaje descriptivo */
-
-
-
-
+// Uso de setTimeout con funciones
+setTimeout(function () {
+    calcularPromedio(18, 11, 20); // Calcula y muestra el promedio
+    console.log("¿El número 2 es par? " + esPar(2)); // Verifica si 2 es par
+}, 2000); // Espera 2 segundos antes de ejecutar
